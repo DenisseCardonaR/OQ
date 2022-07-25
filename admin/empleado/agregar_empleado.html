@@ -10,7 +10,7 @@
                         <div class="row" style="padding-top: 8px; padding-bottom: 16px;">
                             <div class="col-3">                            
                                 <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                    <input id="txtNumeroUnicoEmpleado" type="text" class="form-control" placeholder="Numero Unico"/>
+                                    <input id="txtNumeroUnicoEmpleado" type="text" class="form-control"/>
                                     <label for="txtNumeroUnicoEmpleado">N&uacute;mero &Uacute;nico Empleado:</label>
                                 </div>
                             </div>
@@ -93,6 +93,7 @@
                             </div>
                         </div>
                         <div class="my-3 text-center">
+                            <button class="btn btn-success" onclick="generarNumeroUnicoEmpleado();">Generar N&uacute;mero &Uacute;nico</button>
                             <button class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
                             <button class="btn btn-danger mx-3"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>
                             <button class="btn btn-success" onclick="cargarAgregarEmpleado();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>

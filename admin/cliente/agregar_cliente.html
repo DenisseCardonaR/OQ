@@ -16,20 +16,6 @@
                             </div>
                             <div class="col-3">                            
                                 <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                    <input id="txtApellidoPaternoC" type="text" class="form-control" placeholder="Apellido Paterno del Cliente"/>
-                                    <label for="txtApellidoPaternoC">Apellido Paterno:</label>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                    <input id="txtApellidoMaternoC" type="text" class="form-control" placeholder="Apellido Materno del Cliente"/>
-                                    <label for="txtApellidoMaternoC">Apellido Materno:</label>
-                                </div>
-                            </div>
-                        </div>                        
-                        <div class="row" style="padding-top: 8px; padding-bottom: 16px;"> 
-                            <div class="col-3">                            
-                                <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
                                     <input id="txtNumeroUnicoCliente" type="text" class="form-control" placeholder="Numero Unico"/>
                                     <label for="txtNumeroUnicoCliente">N&uacute;mero &Uacute;nico Cliente:</label>
                                 </div>
@@ -38,6 +24,20 @@
                                 <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
                                     <input id="txtRFC" type="text" class="form-control" placeholder="RFC del Cliente"/>
                                     <label for="txtRFC">RFC:</label>
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="row" style="padding-top: 8px; padding-bottom: 16px;">                             
+                            <div class="col-3">                            
+                                <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                    <input id="txtApellidoPaternoC" type="text" class="form-control" placeholder="Apellido Paterno del Cliente"/>
+                                    <label for="txtApellidoPaternoC">Apellido Paterno:</label>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                    <input id="txtApellidoMaternoC" type="text" class="form-control" placeholder="Apellido Materno del Cliente"/>
+                                    <label for="txtApellidoMaternoC">Apellido Materno:</label>
                                 </div>
                             </div>
                             <div class="col-3"> 
@@ -81,6 +81,7 @@
                             </div>
                         </div> 
                         <div class="my-3 text-center">
+                            <button class="btn btn-success" onclick="generarNumeroUnicoCliente();">Generar N&uacute;mero &Uacute;nico</button>
                             <button class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
                             <button class="btn btn-danger mx-3"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>
                             <button class="btn btn-success" onclick="cargarAgregarCliente();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
