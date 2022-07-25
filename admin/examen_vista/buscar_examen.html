@@ -1,5 +1,5 @@
 <div class="row mt-2">
-    <div class="col-12">
+    <div class="col-9">
         <div class="card">
             <div class="card-header card-hform">
                 Detalles de Examen de vista
@@ -139,12 +139,15 @@
                     </div>
                     <div class="row mt-2">
                         <div class="my-3 text-center">
-                            <button class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
-                            <button class="btn btn-danger mx-3"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>                            
+                            <button class="btn btn-primary" onclick="mandarConfirmacionCambios();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
+                            <button class="btn btn-danger mx-3" onclick="eliminarExamen();"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
+    </div> 
+    <div id="divEliminarExamen" class="col-3">
+        
+    </div>
 </div>

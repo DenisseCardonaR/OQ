@@ -31,3 +31,18 @@ function cargarBuscarExamen()
                    });
 }
 
+function eliminarExamen()
+{
+    fetch('examen_vista/eliminar_examen.html')
+    .then(respuesta => {
+                         return respuesta.text();
+                        })
+    .then(datos => {
+                    document.getElementById('divEliminarExamen').innerHTML=datos;
+                   });
+}
+
+function mandarConfirmacionExamen()
+{
+    alert("Se elimino el Examen de vista");
+}
