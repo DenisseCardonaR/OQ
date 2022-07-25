@@ -46,3 +46,9 @@ function mandarConfirmacionEliminar()
 {
     alert("Se elimino la venta");
 }
+
+function generarClaveUnicaVenta() {
+    let clave_unica_venta = "OQV-"+Math.floor(Math.random()*999999);;
+    
+     document.getElementById("txtClaveUnicaVenta").value = clave_unica_venta;
+}
