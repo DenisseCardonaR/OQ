@@ -32,15 +32,13 @@ function cargarBusquedaEmpleado()
 }
 
 function generarNumeroUnicoEmpleado() {
-    let paterno = document.getElementById("txtApellidoPaternoE").value;
-    let materno = document.getElementById("txtApellidoMaternoE").value;    
+    let paterno = document.getElementById('txtApellidoPaternoE').value;
+    let materno = document.getElementById('txtApellidoMaternoE').value;
     
-    let paterno1 = paterno.val().charAt(0).toUpperCase();
-    let paterno2 = paterno.val().charAt(1).toUpperCase();
-    let materno1 = materno.val().charAt(0).toUpperCase();
-    let numero = Math.floor(Math.random()*999999);
+    let letra1 = paterno.substring(0,2);
+    let letra2 = materno.substring(0,1);
     
-    let numero_unico = paterno1+paterno2+materno1+numero;
+    let numero_unico = letra1+letra2+"-"+Math.floor(Math.random()*9999);
 
     document.getElementById("txtNumeroUnicoEmpleado").value = numero_unico;
 }
