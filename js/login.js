@@ -1,3 +1,8 @@
+/* 
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
+ */
+
 
 function login()
 {
@@ -6,5 +11,7 @@ function login()
 
 function logout()
 {
-    window.location.replace('/opticaqdtc/index.html');
+    window.location.replace('/optiqdtc/index.html');
 }
+
+

@@ -1,70 +1,100 @@
-function cargarModuloAccesorio()
-{
-    fetch('producto/accesorio/accesorio.html')
-    .then(respuesta => {
-                         return respuesta.text();
-                        })
-    .then(datos => {
-                    document.getElementById('contenedor_principal').innerHTML=datos;
-                   });
-}
+//Se declara la variable cm(Cargar Modulo) 
+let cm=null;
 
-function cargarModuloArmazon()
+function cargarModuloEmpleado()
 {
-    fetch('producto/armazon/armazon.html')
+    //AJAX: Asynchronous
+    fetch('empleado/empleado.html')
     .then(respuesta => {
-                         return respuesta.text();
-                        })
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
     .then(datos => {
-                    document.getElementById('contenedor_principal').innerHTML=datos;
-                   });
-}
-
-function cargarModuloExamenVista()
-{
-    fetch('examen_vista/examen_vista.html')
-    .then(respuesta => {
-                         return respuesta.text();
-                        })
-    .then(datos => {
-                    document.getElementById('contenedor_principal').innerHTML=datos;
-                   });
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./empleado.js').then(obj => {
+                    cm=obj;
+                    cm.inicializarEmpleado();
+                    
+                });
+             });  
 }
 
 function cargarModuloCliente()
 {
+     //AJAX: Asynchronous
     fetch('cliente/cliente.html')
     .then(respuesta => {
-                         return respuesta.text();
-                        })
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
     .then(datos => {
-                    document.getElementById('contenedor_principal').innerHTML=datos;
-                   });
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./cliente.js').then(obj => {
+                    cm=obj;
+                    cm.inicializar();
+                    
+                });
+             });   
 }
 
-function cargarModuloEmpleado()
+function cargarModuloAccesorio()
 {
-    fetch('empleado/empleados.html')
+    //AJAX: Asynchronous
+    fetch('producto/accesorio/accesorio.html')
     .then(respuesta => {
-                         return respuesta.text();
-                        })
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
     .then(datos => {
-                    document.getElementById('contenedor_principal').innerHTML=datos;
-                   });
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./accesorio.js') 
+                .then(obj => {
+                    cm=obj;
+                    cm.inicializar();
+                    
+                });
+             });
 }
 
-function cargarModuloVenta()
+function cargarModuloSolucion()
 {
-    fetch('venta/venta.html')
+    //AJAX: Asynchronous
+    fetch('producto/solucion/solucion.html')
     .then(respuesta => {
-                         return respuesta.text();
-                        })
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
     .then(datos => {
-                    document.getElementById('contenedor_principal').innerHTML=datos;
-                   });
-}
-
-function mandarConfirmacionCambios()
-{
-    alert("Los cambios se guardaron correctamente");
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./solucion.js') 
+                .then(obj => {
+                    cm=obj;
+                    cm.inicializarSol();
+                    
+                });
+             });
 }
