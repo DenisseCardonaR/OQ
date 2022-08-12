@@ -43,7 +43,7 @@ function cargarModuloCliente()
                  
         import('./cliente.js').then(obj => {
                     cm=obj;
-                    cm.inicializar();
+                    cm.inicializarCliente();
                     
                 });
              });   
@@ -73,6 +73,30 @@ function cargarModuloAccesorio()
                 });
              });
 }
+function cargarModuloArmazon()
+{
+    //AJAX: Asynchronous
+    fetch('producto/armazon/armazon.html')
+    .then(respuesta => {
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
+    .then(datos => {
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./armazon.js') 
+                .then(obj => {
+                    cm=obj;
+                    cm.inicializar();
+                    
+                });
+             });
+}
 
 function cargarModuloSolucion()
 {
@@ -94,6 +118,32 @@ function cargarModuloSolucion()
                 .then(obj => {
                     cm=obj;
                     cm.inicializarSol();
+                    
+                });
+             });
+}
+
+function cargarModuloLentes()
+{
+    //alert('hi')
+    //AJAX: Asynchronous
+    fetch('producto/lente/lentesdecontacto.html')
+    .then(respuesta => {
+       
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
+    .then(datos => {
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./lentescontacto.js').then(obj => {
+                    cm=obj;
+                    cm.inicializarLentesConct();
                     
                 });
              });
