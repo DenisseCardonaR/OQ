@@ -1,28 +1,16 @@
 
 .fondoLogin
 {
-    background-image: url(../img/fondo_login.gif);
-    background-size: cover;
-    background-repeat: repeat-y;
-    
+    background-image: url('../img/fondo_login.png');
 }
 
 .title
 {
-    border: 1px solid #000;
     color:white;
     font-weight: bold;
     -webkit-text-stroke: 0.9px black;
     text-shadow: 0 3px 5px black;
-    width: max-content;
-    margin: 0 auto;
-    padding-top: -5px;
-    background-color: rgba( 195, 219, 223,1);
-    border-radius: 15px;
-    padding: 5px 60px 5px 60px;
-    margin-top: -55px;
-    margin-bottom: 10px;
-    z-index: 2;
+    font-size: 30px;
 }
 
 .ingresar
@@ -31,6 +19,7 @@
     background-color: rgb(4, 39, 46);
     width: 150px;
     text-align: center;
+    box-shadow: 5px 5px #888888;
 }
 .ingresar:hover
 {
@@ -55,9 +44,15 @@
     background-color: #c3dbdf;
 }
 
+.CardHeaderLogin
+{
+    background-color: #04272E;
+}
+
 .fondoMenu
 {
-    background-image: url(../img/fondo_menu.gif);
+    background-color: #04272E;
+    background-image: url(../img/fondo_menu.png);
     background-size: cover;
     background-repeat: repeat-y;
 }
@@ -99,25 +94,9 @@
     color: white;
 }
 
-.migas:link,.migas:visited,.migas:active
-{
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 12px;
-}
-
-.migas:hover
-{
-    color: white;
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 12px;
-}
-
 .hamburguesa-btn
 {
-    color: #c1dee6;
+    color: #3a7985;
     background-color: rgba(4, 39, 46,0.5);
     border: none;
     font-size: 30px;
@@ -126,12 +105,29 @@
     text-align: center;
     justify-items: center;
     justify-content: center;
+    padding: 2px;
+    margin: 2px;
+}
+
+.hamburguesa-btn:visited,hamburguesa-btn:active
+{
+    color: #3a7985;
+    background-color: rgba(4, 39, 46,0.5);
+    border: none;
+    font-size: 30px;
+    width: 50px;
+    height: content-box;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 2px;
+    border: none;
 }
 
 hamburguesa
 {
-    width: 30px;
-    height: content-box;
+    
 }
 .card-hform
 {
@@ -152,28 +148,58 @@ hamburguesa
     z-index:1;
 }
 
-#divLogin
+.login
 {
-    border: 0.5px solid;    
-    box-shadow: 8px 10px rgba(0,0,0,0.6);
-    border-radius: 25px 25px 10px 10px;
-    background-image: linear-gradient(#04272E,#04272E,#8fd9e1,white);
-    margin-top: 60px;
-    padding-top: 0px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-bottom: 20px;    
-    width: 700px;
-    height: 500px;
+    margin-top: 50px;
 }
 
+.login-input
+{
+    box-shadow: 5px 5px #888888;
+}
 
 /********************************************************************/
 @media(max-width: 991px)
 {
     #menuPrincipal
     {
-        background-color: rgb(1, 35, 42);
+        background-color: #055160;
         z-index: 2;
+    }
+
+    .login
+    {
+        margin-top: 5px;
+    }
+}
+
+@media(max-width:480px)
+{
+    .login-card
+    {
+        height: 500px;
+    }
+
+    .ingresar
+    {
+        color: white;
+        background-color: rgb(4, 39, 46);
+        width: 300px;
+        text-align: center;
+    }
+    
+    .fondoLogin
+    {
+        background-image: url('../img/fondo_movil.png');
+    }
+    
+    .fondoMenu
+    {
+        background-image: url('../img/fondo_movil.png');
+    }
+    
+    .menu-imagen-logo
+    {
+        display: none;
     }
 }
