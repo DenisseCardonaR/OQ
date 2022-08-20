@@ -40,13 +40,11 @@ let clientes = [
     }
 ];
 
-//iniciarlizar
 export function inicializarCliente()
 {
     setDetalleVisible(false);
     fillTable();
 }
-//finInicializar
 
 /**
  * Llena una tabla a partir de un Arreglo JSON.
@@ -90,7 +88,7 @@ export function mostrarDetalleCliente(idClientes)
 {
     let i = -1;
 
-    //Buscamos la posicion del accesorio
+    //Buscamos la posicion del cliente
     i = buscarPosicionPorId(idClientes);
 
     //Revisamos que sea una posicion valida
@@ -107,13 +105,12 @@ export function mostrarDetalleCliente(idClientes)
         document.getElementById("txtApellidoPaternoC").value = clientes[i].apellido_paterno;
         document.getElementById("txtApellidoMaternoC").value = clientes[i].apellido_materno;
         document.getElementById("txtCorreoElectronicoC").value = clientes[i].correo_electronico;
-        document.getElementsByName("txtGeneroC").value = clientes[i].genero;
-        document.getElementsByName("rbtnEstatus").value = clientes[i].estatus;
+        document.getElementById("txtGeneroC").value = clientes[i].genero;        
         document.getElementById("txtTelefonoCasaC").value = clientes[i].telefono_casa;
         document.getElementById("txtTelefonoMovilC").value = clientes[i].telefono_movil;
         document.getElementById("txtRFCC").value=clientes[i].rfc;
 
-    } else //Se supone que esto nunca debe suceder
+    } else
         alert('Cliente No encontrado.');
        
        //Mostramos el formulario que llenamos previamente
@@ -130,22 +127,21 @@ export function limpiarFormularioDetalle()
         document.getElementById("txtApellidoPaternoC").value ="";
         document.getElementById("txtApellidoMaternoC").value ="";
         document.getElementById("txtCorreoElectronicoC").value ="";
-        document.getElementsByName("txtGeneroC").value ="";
-        document.getElementsByName("rbtnEstatus").value ="";
+        document.getElementById("txtGeneroC").value ="";        
         document.getElementById("txtTelefonoCasaC").value ="";
         document.getElementById("txtTelefonoMovilC").value ="";
         document.getElementById("txtRFCC").value="";
 }
 
 
-//Buscar la posicion de un Accesorio
-//dentro del arreglo de accesorios
-//con base en el idAccesorio
+//Buscar la posicion de un cliente
+//dentro del arreglo de clientes
+//con base en el idCliente
 function buscarPosicionPorId(id)
 {
     for (let i = 0;i < clientes.length; i++)
     {
-        //Comparamos si el ID del Accesorio en la posicion
+        //Comparamos si el ID del cliente en la posicion
         //actual, es igual al id que nos pasan como parametro:
         if (clientes[i].idClientes === id) {
             return i; //Si son iguales, regresamos la posicion
@@ -159,9 +155,9 @@ function buscarPosicionPorId(id)
 }
 export function save()
 {
-    //declaramos una variable temporal para saber la posición del empleado
+    //declaramos una variable temporal para saber la posición del cliente
     let pos = -1;
-    //Definimos los atributos y valores del empleado
+    //Definimos los atributos y valores del cliente
     let cliente = {
         
         idClientes:0,
@@ -169,8 +165,7 @@ export function save()
         nombre:document.getElementById("txtNombreC").value,
         apellido_paterno:document.getElementById("txtApellidoPaternoC").value,
         apellido_materno:document.getElementById("txtApellidoMaternoC").value,
-        genero:document.getElementsByName("txtGeneroC").value,
-        estatus:document.getElementsByName("rbtnEstatus").value,
+        genero:document.getElementById("txtGeneroC").value,        
         rfc:document.getElementById("txtRFCC").value,
         telefono_casa:document.getElementById("txtTelefonoCasaC").value,
         telefono_movil:document.getElementById("txtTelefonoMovilC").value,
@@ -178,11 +173,11 @@ export function save()
         
         
     };
-    //Revisamos si hay algun valor en la caja de texto del id del empleado:
-    //El trin quita espacios a la derecha e izquierda
+    //Revisamos si hay algun valor en la caja de texto del id del cliente:
+    //El trim quita espacios a la derecha e izquierda
     if (document.getElementById("txtNumeroUnicoCliente").value.trim() === '')
     {
-        //generamos un id para el empleado a partir de los milisegundos de la fecha actual
+        //generamos un id para el cliente a partir de los milisegundos de la fecha actual
         cliente.idClientes = Date.now()+1;
 
         //Generar numero unico
@@ -191,8 +186,8 @@ export function save()
 
         cliente.numeroUnicoCliente = letra1 + letra2 + (Date.now() + 1);
 
-        //Insertamos el empleado al final del arreglo
-        clientes[clientes.length] = cliente;
+        //Insertamos el cliente al final del arreglo
+        clientes[clientes.length] =cliente;
 
         //Colocamos los id generados en las cajas de texto para evitar duplicados
         document.getElementById("txtNumeroUnicoCliente").value = cliente.numeroUnicoCliente;
@@ -205,7 +200,7 @@ export function save()
         fillTable();
     } else
     {
-        //Si el accesorio ya tiene un id, lo tomamos para actualizar sus datos:
+        //Si el empleado ya tiene un id, lo tomamos para actualizar sus datos:
         cliente.idClientes = parseInt(document.getElementById("txtIdCliente").value);
         cliente.numeroUnicoCliente = document.getElementById("txtNumeroUnicoCliente").value;
         
@@ -219,7 +214,7 @@ export function save()
             clientes[pos] = cliente;
             
             //Mostramos un mensaje al usuario:
-            mandarConfirmacionGuardar();
+            mandarConfirmacionActualizar();
             
             //Actualizamos la tabla
             fillTable();
@@ -231,7 +226,7 @@ export function save()
     }
 }
 
-//Eliminar un empleado
+//Eliminar un cliente
 export function remove()
 {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -262,7 +257,7 @@ export function remove()
 
                     swalWithBootstrapButtons.fire(
                             'Eliminado!',
-                            'Se elimino correctamente.',
+                            'Se eliminó correctamente.',
                             'success'
                             )
 

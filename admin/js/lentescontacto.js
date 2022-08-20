@@ -2,32 +2,44 @@
 let lentes = [
     {
         idLentes: 1,
+        idProducto: 1,
         nombre: "Lente de contacto blando",
         marca: "Fendik",
         modelo: "Hidrogel",
         color: "Pure hazel",
         queratometria: "47,50D",
+        precioCompra: 129.90,
+        precioVenta: 350.00,
+        existencias: 15,
         estatus: "Activo",
         fotografia: ""
     },
     {
         idLentes: 2,
+        idProducto: 2,
         nombre: "Lente GR",
         marca: "Optel",
         modelo: "Gas permeable",
         color: "Azul",
         queratometria: "45,30D",
+        precioCompra: 129.90,
+        precioVenta: 350.00,
+        existencias: 15,
         estatus: "Activo",
         fotografia: ""
 
     },
     {
         idLentes: 3,
+        idProducto: 3,
         nombre: "Lente blando",
         marca: "Optel",
         modelo: "PMMA",
         color: "Verde",
         queratometria: "46,70D",
+        precioCompra: 129.90,
+        precioVenta: 350.00,
+        existencias: 15,
         estatus: "Inactivo",
         fotografia: ""
     }
@@ -54,10 +66,9 @@ export function fillTable()
                 '<td>' + lentes[i].nombre + '</td>' +
                 '<td>' + lentes[i].marca + '</td>' +
                 '<td>' + lentes[i].modelo + '</td>' +
-                '<td>' + lentes[i].color + '</td>' +
-                '<td>' + lentes[i].queratometria + '</td>' +
-                '<td>' + lentes[i].fotografia + '</td>' +
-                '<td>' + lentes[i].estatus + '</td>' +
+                '<td>' + lentes[i].precioCompra + '</td>' +
+                '<td>' + lentes[i].precioVenta + '</td>' +
+                '<td>' + lentes[i].existencias + '</td>' +
                 '<td><a href="#" onclick="cm.mostrarDetalleLentes(' +
                 lentes[i].idLentes + ');">Ver Detalle</a></td>' +
                 '</tr>';
@@ -84,7 +95,7 @@ export function mostrarDetalleLentes(idLentes)
 {
     let i = -1;
 
-    //Buscamos la posicion del accesorio
+    //Buscamos la posicion del lente de contacto
     i = buscarPosicionPorId(idLentes);
 
     //Revisamos que sea una posicion valida
@@ -97,16 +108,21 @@ export function mostrarDetalleLentes(idLentes)
         //Llenamos el formulario con los datos de los Lentes de contacto
 
         document.getElementById("txtIdLenteC").value = lentes[i].idLentes;
+        document.getElementById("txtCodigoProducto").value = lentes[i].idProducto;
         document.getElementById("txtNombre").value = lentes[i].nombre;
         document.getElementById("txtMarca").value = lentes[i].marca;
         document.getElementById("txtModelo").value = lentes[i].modelo;
         document.getElementById("txtcolorLenteContacto").value = lentes[i].color;
         document.getElementById("txtQueratometria").value = lentes[i].queratometria;
+        document.getElementById("txtPrecioCompraL").value = lentes[i].precioCompra;
+        document.getElementById("txtPrecioVentaL").value = lentes[i].precioVenta;
+        document.getElementById("txtExistenciasL").value = lentes[i].existencias;
 
 
 
 
-    } else //Se supone que esto nunca debe suceder
+
+    } else 
         alert('Lentes de contacto no encontrado.');
 
     //Mostramos el formulario que llenamos previamente
@@ -115,19 +131,24 @@ export function mostrarDetalleLentes(idLentes)
 export function limpiarFormularioDetalle()
 {
     document.getElementById("txtIdLenteC").value = "";
+    document.getElementById("txtCodigoProducto").value = "";
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtMarca").value = "";
     document.getElementById("txtModelo").value = "";
     document.getElementById("txtcolorLenteContacto").value = "";
     document.getElementById("txtQueratometria").value = "";
+    document.getElementById("txtPrecioCompraL").value = "";
+    document.getElementById("txtPrecioVentaL").value = "";
+    document.getElementById("txtExistenciasL").value = "";
+    document.getElementById("selTipoL").value = "Tipo lente";
 }
-//Buscar la posicion de un Empleado dentro del arreglo de empleado con base en el id
+//Buscar la posicion de lente de contacto dentro del arreglo de lentes de contacto con base en el id
 function buscarPosicionPorId(id)
 {
     for (let i = 0;
     i < lentes.length; i++)
     {
-        //Comparamos si el ID del Empleado en la posicion
+        //Comparamos si el ID del lente de contacto en la posicion
         //actual, es igual al id que nos pasan como parametro:
         if (lentes[i].idLentes === id) {
             return i; //Si son iguales, regresamos la posicion
@@ -148,25 +169,31 @@ export function save()
     let lente = {
 
         idLentes: 0,
+        idProducto:0,
         nombre: document.getElementById("txtNombre").value,
         marca: document.getElementById("txtMarca").value,
         modelo: document.getElementById("txtModelo").value,
         color: document.getElementById("txtcolorLenteContacto").value,
-        queratometria: document.getElementById("txtQueratometria").value
+        queratometria: document.getElementById("txtQueratometria").value,
+        precioCompra: parseFloat(document.getElementById("txtPrecioCompraL").value),
+        precioVenta: parseFloat(document.getElementById("txtPrecioVentaL").value),
+        existencias: parseFloat(document.getElementById("txtExistenciasL").value)
 
     };
-    //Revisamos si hay algun valor en la caja de texto del id del empleado:
-    //El trin quita espacios a la derecha e izquierda
+    //Revisamos si hay algun valor en la caja de texto del id de lente de contacto:
+    //El trim quita espacios a la derecha e izquierda
     if (document.getElementById("txtIdLenteC").value.trim() === '')
     {
         //generamos un id para los lentes a partir de los milisegundos de la fecha actual
         lente.idLentes = Date.now();
+        lente.idProducto = Date.now()+1;
 
         //Insertamos el empleado al final del arreglo
         lentes[lentes.length] = lente;
 
         //Colocamos los id generados en las cajas de texto para evitar duplicados
         document.getElementById("txtIdLenteC").value = lente.idLentes;
+        document.getElementById("txtCodigoProducto").value= lente.codigoBarra;
 
         //Mostramos un mensaje al usuario
         mandarConfirmacionGuardar();
@@ -229,7 +256,7 @@ export function remove()
 
                     swalWithBootstrapButtons.fire(
                             'Eliminado!',
-                            'Se elimino correctamente.',
+                            'Se eliminó correctamente.',
                             'success'
                             )
 
